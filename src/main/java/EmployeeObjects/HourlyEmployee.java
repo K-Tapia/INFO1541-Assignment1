@@ -22,6 +22,7 @@ public final class HourlyEmployee extends Employee {
      * @param job String for the job title
      * @param w double for the wage/hourly pay
      */
+
     public HourlyEmployee(String fn, String ln, int en, String dept, String job, double w)
     {
         super(fn, ln, en, dept, job, EmployeeType.HOURLY);
@@ -75,10 +76,10 @@ public final class HourlyEmployee extends Employee {
         double pay = wage * hoursWorked;
         if (hoursWorked > 40)
         {
-            pay = wage * 40 + (wage*1.25) * (hoursWorked-40);
+            pay = wage * 40 + (wage*1.5) * (hoursWorked-40);
         }
         
-        return pay;
+        return Math.round(pay * 100) / 100.0;
     }
 
     /**
