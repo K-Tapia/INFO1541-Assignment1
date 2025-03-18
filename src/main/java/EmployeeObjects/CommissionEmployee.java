@@ -3,14 +3,18 @@ package EmployeeObjects;
 import EmployeeBlueprints.Employee;
 import EmployeeBlueprints.EmployeeType;
 
+
+
 /**
  * Commission Employee that holds the data on sales and their commission rate.
  * @author lhartman2
  * @version 1.0.1
  */
+@EmployeeObjects.EmployeeType(type="Commission")
 public final class CommissionEmployee extends Employee {
     
     private double sales;
+    @PayRate(type="Commission")
     private double rate;
 
     /**
@@ -69,6 +73,7 @@ public final class CommissionEmployee extends Employee {
      * @return a double for the pay
      */
     @Override
+    @WeeklyPayCalculator
     public double calculateWeeklyPay()
     {
         return rate * sales;
